@@ -320,6 +320,12 @@ resource "aws_security_group" "default" {
   }
 
   tags = module.label.tags
+
+  lifecycle {
+    ignore_changes = [
+      ingress,
+    ]
+  }
 }
 
 locals {
